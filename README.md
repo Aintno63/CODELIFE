@@ -23,4 +23,4 @@ Running the Unit Tests
 
 Run the unit tests manually with appropriate browsers and any local web server. See our environment setup and information on running tests.
 
-You can also run the unit tests inside phantomjs by setting up your environment.
+You can also run the unit tests inside phantomjs by setting up your environment. 
