@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Leaflet Build Helper</title>
+	<title>CodeLife Build Helper</title>
 
 	<script type="text/javascript" src="deps.js"></script>
 
@@ -16,39 +16,39 @@
 			margin: 0 auto;
 			width: 780px;
 		}
-		#deplist {
+		#list {
 			list-style: none;
 			padding: 0;
 		}
-		#deplist li {
+		#list li {
 			padding-top: 7px;
 			padding-bottom: 7px;
 			border-bottom: 1px solid #ddd;
 		}
-		#deplist li.heading {
+		#list li.heading {
 			border: none;
 			background: #ddd;
 			padding: 5px 10px;
 			margin-top: 25px;
 			border-radius: 5px;
 		}
-		#deplist input {
+		#list input {
 			float: left;
 			margin-right: 5px;
 			display: inline;
 		}
-		#deplist label {
+		#list label {
 			float: left;
 			width: 160px;
 			font-weight: bold;
 		}
-		#deplist div {
+		#list div {
 			display: table-cell;
 			height: 1%;
 		}
-		#deplist .desc {
+		#list .desc {
 		}
-		#deplist .deps {
+		#list .deps {
 			color: #777;
 		}
 		#command {
@@ -68,7 +68,7 @@
 </head>
 <body>
 	<div id="container">
-		<h1>Leaflet Build Helper</h1>
+		<h1>CodeLife Build Helper</h1>
 
 		<p id="toolbar">
 			<a id="select-all" href="#all">Select All</a> |
@@ -79,19 +79,19 @@
 
 		<h2>Building using Node and UglifyJS</h2>
 		<ol>
-			<li><a href="http://nodejs.org/#download">Download and install Node</a></li>
+			<li><a href="https://www.codecademy.com/courses/javascript-beginner-en-ASGIv/2/4?curriculum_id=506324b3a7dffd00020bf661#">Download and install Node</a></li>
 			<li>Run this in the command line:<br />
 			<pre><code>npm install -g jake
 npm install</code></pre></li>
-			<li>Run this command inside the Leaflet directory: <br /><input type="text" id="command2" />
+			<li>Run this command inside the CODELIFE directory: <br /><input type="text" id="command2" />
 		</ol>
 	</div>
 
 	<script type="text/javascript">
-		var deplist = document.getElementById('deplist'),
+		var list = document.getElementById('list'),
 			commandInput = document.getElementById('command2');
 		document.getElementById('select-all').onclick = function() {
-			var checks = deplist.getElementsByTagName('input');
+			var checks = list.getElementsByTagName('input');
 			for (var i = 0; i < checks.length; i++) {
 				checks[i].checked = true;
 			}
@@ -99,7 +99,7 @@ npm install</code></pre></li>
 			return false;
 		};
 		document.getElementById('deselect-all').onclick = function() {
-			var checks = deplist.getElementsByTagName('input');
+			var checks = list.getElementsByTagName('input');
 			for (var i = 0; i < checks.length; i++) {
 				if (!checks[i].disabled) {
 					checks[i].checked = false;
@@ -110,7 +110,7 @@ npm install</code></pre></li>
 		};
 		function updateCommand() {
 			var files = {};
-			var checks = deplist.getElementsByTagName('input');
+			var checks = list.getElementsByTagName('input');
 			var compsStr = '';
 			for (var i = 0, len = checks.length; i < len; i++) {
 				if (checks[i].checked) {
@@ -143,7 +143,7 @@ npm install</code></pre></li>
 					}
 				}
 			} else {
-				var checks = deplist.getElementsByTagName('input');
+				var checks = list.getElementsByTagName('input');
 				for (var i = 0; i < checks.length; i++) {
 					var dep = deps[checks[i].id];
 					if (!dep.deps) { continue; }
